@@ -61,3 +61,13 @@
   .nav__links { flex: 1; justify-content: space-evenly; gap: 0; }
   .nav__links a, .nav__links .dd__label { font-size: 1.05rem; }
 }
+/* Navbar: compact pill, bold links, text-style Let's Connect */
+.nav__links a { font-weight: 700; color: #1f2340; }
+.nav__connect { display: none; }
+@media (min-width: 1024px) {
+  .nav__pill { width: auto; gap: 2.4rem; padding: 12px 32px 12px 24px; }
+  .nav__links { flex: none; gap: 2.2rem; }
+  .nav__links a { font-size: 0.95rem; }
+  .nav__right { gap: 0; }
+  .nav__connect { display: inline-block; padding-left: 2.2rem; border-left: 1px solid $line; font-weight: 700; font-size: 0.95rem; color: #4f46e5; text-decoration: none; transition: color 0.2s; &:hover { color: #3730a3; } }
+}
