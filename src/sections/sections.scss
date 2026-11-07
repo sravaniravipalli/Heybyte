@@ -295,3 +295,7 @@
 }
 @keyframes vfade { from { opacity: 0; } }
 .steps__video { animation: vfade 0.6s ease; }
+@media (max-width: 1023px) {
+  .tool { width: 100%; }
+  .tool:nth-child(odd), .tool:nth-child(even) { transform: none; }
+}
