@@ -17,16 +17,17 @@ export default function Hero() {
   return (
     <section className="hero" ref={ref}>
       <div className="hero__stick">
-        <h1 aria-label="We Develop Amazing Software For Your Business">
-          {lines.map((line, li) => (
-            <span className="line" key={li} aria-hidden="true">
-              {line.map((w) => {
-                const idx = n++
-                return <span className="w" key={idx}><span className={w === 'Software' ? 'blue' : ''} style={{ '--i': idx }}>{w}</span>{' '}</span>
-              })}
-            </span>
-          ))}
-        </h1>
+      <h1 aria-label="We Develop Amazing Software For Your Business">
+  {lines.map((line, li) => (
+    <span className={`line ${li === 1 ? 'line--accent' : ''}`} key={li} aria-hidden="true">
+      {line.map((w) => {
+        const idx = n++
+        return <span className="w" key={idx}><span className={li === 1 ? 'blue' : ''} style={{ '--i': idx }}>{w}</span>{' '}</span>
+      })}
+    
+    </span>
+  ))}
+</h1>
         <div className="hero__stat">
           <svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true"><path d="M2 3l9 9 5-4 12 11M28 10v9h-9" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
           <CountUp end={heroStat.value} suffix={heroStat.suffix} />
