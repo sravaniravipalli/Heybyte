@@ -24,15 +24,7 @@ const social = [
       </svg>
     ),
   },
-  {
-    label: 'X',
-    href: 'https://x.com/',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
+ 
 ]
 export default function Footer() {
   return (
@@ -41,7 +33,7 @@ export default function Footer() {
 <svg className="footer__wave footer__wave--b" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true"><path d="M0 240 C200 160 380 170 560 230 S960 300 1160 210 1360 150 1440 190 V320 H0Z" /></svg>
     <div className="footer__inner">
         <div>
-          <Link to="/" className="logo"><span className="logo__mark">h</span>HeyByte</Link>
+         <Link to="/" className="logo" aria-label="heyByte.ai home"><img src="/logo.png" alt="heyByte.ai" className="logo__img" /></Link>
           <p className="footer__tag">{company.tagline}</p>
          <div className="footer__social">
   {social.map((s) => (

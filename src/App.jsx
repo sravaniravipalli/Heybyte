@@ -4,7 +4,8 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import GetStarted from './pages/GetStarted'
-
+import LegalPage from './pages/LegalPage'
+import { privacy, terms } from './data/legal'
 import IndustryPage from './pages/IndustryPage'
 import TextPage from './pages/TextPage'
 import ServicesPage from './pages/ServicesPage'
@@ -26,9 +27,9 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
         
           <Route path="/blog" element={<TextPage title="Blog"><p>Articles are coming soon.</p></TextPage>} />
-          <Route path="/privacy-policy" element={<TextPage title="Privacy policy"><p>Add your privacy policy here.</p></TextPage>} />
-          <Route path="/terms-of-service" element={<TextPage title="Terms of service"><p>Add your terms of service here.</p></TextPage>} />
-          <Route path="*" element={<Home />} />
+          <Route path="/privacy-policy" element={<LegalPage doc={privacy} />} />
+<Route path="/terms-of-service" element={<LegalPage doc={terms} />} />
+<Route path="*" element={<Home />} />
         </Routes>
       </main>
       <Footer />

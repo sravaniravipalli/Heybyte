@@ -299,3 +299,8 @@
   .tool { width: 100%; }
   .tool:nth-child(odd), .tool:nth-child(even) { transform: none; }
 }
+/* =============== Legal pages =============== */
+.legal { max-width: 760px; padding-top: 80px;
+  h1 { font: 400 clamp(2.2rem, 5vw, 3.6rem) $font-display; letter-spacing: -0.04em; }
+  &__date { color: $muted; margin: 0.6rem 0 2.4rem; font-size: 0.9rem; }
+  &__sec { margin-bottom: 2rem; scroll-margin-top: 110px; h2 { font: 500 1.3rem $font-display; letter-spacing: -0.02em; margin-bottom: 0.7rem; } p { color: $muted; margin-bottom: 0.8rem; line-height: 1.7; } ul { color: $muted; padding-left: 1.2rem; display: grid; gap: 0.4rem; line-height: 1.6; } } }
