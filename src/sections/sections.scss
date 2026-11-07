@@ -1,7 +1,7 @@
 @use '../styles/variables' as *;
 
 /* =============== HERO (card expands as you scroll) =============== */
-.hero { --p: 0; --q: clamp(0, calc((var(--p) - 0.04) / 0.72), 1); height: 240vh; padding: 12px 12px 0;
+.hero { --p: 0; --q: clamp(0, calc((var(--p) - 0.04) / 0.72), 1); height: 200vh; padding: 12px 12px 0;
   &__stick { position: sticky; top: 12px; height: calc(100vh - 24px); border-radius: 40px; overflow: hidden; background: linear-gradient(180deg, #fff 0%, #eaf2ff 55%, #cfe2ff 100%); display: flex; flex-direction: column; align-items: center; padding-top: clamp(110px, 17vh, 150px); }
   h1 { text-align: center; font-weight: 400; font-size: clamp(2.2rem, 5.6vw, 4.7rem); letter-spacing: -0.04em; opacity: calc(1 - var(--q) * 1.4); padding: 0 16px; }
   .line { display: block; }
@@ -10,8 +10,9 @@
     .blue { color: $blue; } }
   &__stat { position: absolute; left: 6%; bottom: 9%; opacity: calc(1 - var(--q) * 1.4); display: grid; gap: 2px; animation: fade-up 0.9s $ease 1s both;
     svg { color: $blue; margin-bottom: 14px; }
+        @include lg { max-width: min(300px, 24vw); }
     strong { font: 400 clamp(2.6rem, 5vw, 4rem) $font-display; letter-spacing: -0.04em; line-height: 1; }
-    b { font-weight: 500; margin-top: 6px; } span { color: $muted; font-size: 0.9rem; margin-top: 28px; } }
+    b { font-weight: 500; margin-top: 6px; } span { color: $muted; font-size: 0.9rem; line-height: 1.5; margin-top: 28px; }}
   &__card { position: absolute; left: 50%; bottom: calc(7% * (1 - var(--q))); width: calc(30% + 70% * var(--q)); height: calc(42% + 58% * var(--q)); transform: translateX(-50%); border-radius: calc(26px * (1 - var(--q))); overflow: hidden; background: #cfd9ea; animation: fade-up 1s $ease 0.8s both; }
   &__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.9s ease; &.is-on { opacity: 1; }
     img, video, .ph { width: 100%; height: 100%; object-fit: cover; } }
@@ -27,7 +28,7 @@
   .badge { height: 38px; min-width: 96px; border-radius: 999px; background: $gray; display: grid; place-items: center; padding: 0 14px; font-weight: 500; color: $ink; img { height: 20px; width: auto; } .ph { background: none; color: $ink; font-size: 0.85rem; font-weight: 500; padding: 0; } } }
 
 /* =============== WHO WE WORK WITH =============== */
-.who { max-width: 1160px; margin: 0 auto; padding: 72px 24px 96px; display: grid; gap: 48px; @include lg { padding-top: 96px; }
+.who { max-width: 1160px; margin: 0 auto; padding: 40px 24px 48px; display: grid; gap: 32px; @include lg { padding-top: 56px; }
   &__label { font: 500 1.1rem $font-display; letter-spacing: -0.01em; }
   &__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
   a { display: grid; grid-template-columns: 32px 1fr; align-items: baseline; column-gap: 14px; text-decoration: none; padding: 6px 0; }
@@ -54,7 +55,7 @@
   &__logo { height: 34px; width: auto; max-width: 140px; &.ph { background: none; color: $white; font: 600 1.4rem $font-display; padding: 0; } } }
 
 /* =============== LOGO STRIP =============== */
-.marquee { padding: 72px 0; overflow: hidden;
+.marquee { padding: 40px 0; overflow: hidden;
   &__title { text-align: center; font: 400 1.6rem $font-display; letter-spacing: -0.03em; margin-bottom: 28px; padding: 0 20px; } }
 .logos { overflow: hidden; margin-bottom: 18px; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   &__track { display: flex; align-items: center; width: max-content; gap: 4rem; animation: scroll 40s linear infinite; }
@@ -76,7 +77,7 @@
   &__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba($ink, 0.1), rgba($ink, 0.7)); }
   &__logo { position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%); max-width: 46%; max-height: 28%; &.ph { background: none; color: rgba($white, 0.85); font: 400 clamp(3rem, 9vw, 7rem) $font-display; letter-spacing: -0.04em; padding: 0; white-space: nowrap; } }
   &__text { position: absolute; left: clamp(20px, 4vw, 48px); right: 20px; bottom: clamp(20px, 4vw, 40px); max-width: 520px; h3 { font-size: 1.5rem; } p { margin: 8px 0 12px; color: rgba($white, 0.8); } span { font-weight: 500; } } }
-
+.scard:last-child { margin-bottom: 0; }
 /* =============== WHAT WE DO (vertical scroll drives horizontal slide) =============== */
 .what { --p: 0; --shift: 100vw; height: calc(100vh + var(--shift)); padding: 12px 0;
   &__stick { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 32px; padding-top: 70px;
@@ -89,7 +90,7 @@
   ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   li { font-size: 0.85rem; background: #dedee2; padding: 0.3rem 0.8rem; border-radius: 8px; transition: background 0.25s, color 0.25s; }
   &:hover li { background: $ink; color: $white; }
-  p { color: $muted; margin-top: auto; } }
+  p { color: $muted; } }
 
 /* =============== 3 STEP (dark pinned panel over video) =============== */
 .steps { position: relative;
@@ -113,18 +114,20 @@
   blockquote { margin: 0; font-size: 0.98rem; line-height: 1.45; }
   figcaption { margin: 14px 0; font-size: 0.85rem; color: $muted; }
   &__media { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 12px; } }
-.tool { width: 250px; flex: none; background: #ebebed; border-radius: 26px; padding: 32px 18px 28px; text-align: center; display: grid; justify-items: center; gap: 6px; box-shadow: 0 20px 50px rgba($ink, 0.14);
+.tool { width: 250px; flex: none; background: #ebebed; border-radius: 26px; padding: 32px 18px 28px; text-align: center; display: grid;cursor: pointer; justify-items: center; gap: 6px; box-shadow: 0 20px 50px rgba($ink, 0.14);
   &:nth-child(odd) { transform: translateY(-80px) rotate(-3deg); }
   &:nth-child(even) { transform: translateY(80px) rotate(2.5deg); }
-  &__img { width: 60px; height: 60px; object-fit: contain; filter: grayscale(1); margin-bottom: 14px; &.ph { border-radius: 14px; background: rgba($ink, 0.06); span { display: none; } } }
+    &__img { width: 60px; height: 60px; object-fit: contain; filter: grayscale(1); margin-bottom: 14px; transition: filter 0.3s, transform 0.3s $ease; &.ph { border-radius: 14px; background: rgba($ink, 0.06); span { display: none; } } }
+  &.is-on &__img { filter: none; transform: scale(1.15); }
+    @media (hover: hover) { &:hover &__img { filter: none; transform: scale(1.15); } }
   h3 { font: 600 0.85rem $font-body; letter-spacing: 0.12em; text-transform: uppercase; }
   p { font-size: 0.85rem; color: $muted; } }
 /* =============== FAQ =============== */
-.faqs { max-width: 1160px; margin: 0 auto; padding: 96px 24px; display: grid; gap: 32px; @include lg { grid-template-columns: 1fr 1.2fr; gap: 80px; }
+.faqs { max-width: 1160px; margin: 0 auto; padding: 56px 24px; display: grid; gap: 32px; @include lg { grid-template-columns: 1fr 1.2fr; gap: 80px; }
   h2 { font: 400 clamp(2.4rem, 5.5vw, 4.2rem) $font-display; letter-spacing: -0.04em; @include lg { position: sticky; top: 120px; align-self: start; } } }
 
 /* =============== CTA + footer wave =============== */
-.cta { position: relative; margin: 0 12px; border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #fff 0%, #e6f0ff 100%); padding: 120px 20px 40px; text-align: center;
+.cta { position: relative; margin: 0 12px; border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #fff 0%, #e6f0ff 100%); padding: 72px 20px 24px; text-align: center;
   &__body { position: relative; z-index: 2; h2 { font: 400 clamp(2.2rem, 5.5vw, 4.4rem) $font-display; letter-spacing: -0.04em; max-width: 16ch; margin: 0 auto 1rem; } p { color: $muted; margin-bottom: 2rem; } } }
 @keyframes drift { to { transform: translateX(3%) translateY(8px); } }
 
@@ -167,12 +170,12 @@
 .blue { color: $blue; }
 
 //* =============== WHY US =============== */
-.why { min-height: 100vh; min-height: 100svh; max-width: none; margin: 0; display: flex; flex-direction: column; justify-content: flex-start; padding: 40px 16px 48px; @media (min-width: 640px) { padding: 48px 24px 56px; } @include lg { padding: 56px clamp(20px, 3vw, 40px) 64px; }
-  &__title { font: 400 clamp(2.4rem, 6vw, 4.5rem) $font-display; letter-spacing: -0.04em; margin-bottom: clamp(20px, 3vh, 32px); em { font-style: normal; color: $blue; } }
-  &__grid { display: grid; gap: 14px; grid-template-columns: 1fr; grid-auto-rows: 1fr; @media (min-width: 640px) { grid-template-columns: 1fr 1fr; flex: 1; gap: 16px; } @include lg { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
-  &__card { background: $gray; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; gap: 12px; min-height: 190px; transition: background 0.3s, color 0.3s, transform 0.3s $ease; @media (min-width: 640px) { padding: 28px; min-height: 240px; } @include lg { padding: 36px; border-radius: 32px; }
-    h3 { font-size: clamp(1.35rem, 2vw, 2rem); margin-top: auto; } p { color: $muted; font-size: 0.95rem; transition: color 0.3s; @include lg { font-size: 1.05rem; } }
-    &:hover { background: $ink; color: $white; transform: translateY(-4px); p { color: rgba($white, 0.75); } } }
+.why { max-width: none; margin: 0; display: flex; flex-direction: column; justify-content: flex-start; padding: 40px 16px 24px; @media (min-width: 640px) { padding: 48px 24px 24px; } @include lg { padding: 56px clamp(20px, 3vw, 40px) 24px; }
+&__title { font: 400 clamp(2.4rem, 6vw, 4.5rem) $font-display; letter-spacing: -0.04em; margin-bottom: clamp(20px, 3vh, 32px); em { font-style: normal; color: $blue; } }
+   &__grid { display: grid; gap: 14px; grid-template-columns: 1fr; grid-auto-rows: 1fr; @media (min-width: 640px) { grid-template-columns: 1fr 1fr; gap: 16px; } @include lg { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+    &__card { background: $gray; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: background 0.3s, color 0.3s, transform 0.3s $ease; @media (min-width: 640px) { padding: 28px; } @include lg { padding: 32px; border-radius: 32px; }
+        h3 { font-size: clamp(1.35rem, 2vw, 2rem); margin-top: 6px; } p { color: $muted; font-size: 0.95rem; transition: color 0.3s; @include lg { font-size: 1.05rem; } }
+         &:hover { background: $ink; color: $white; transform: translateY(-4px); p { color: rgba($white, 0.75); } } }
   &__n { font: 500 0.85rem $font-body; color: $blue; } }
 
 /* =============== Services page =============== */
@@ -260,3 +263,35 @@
   .trust__all .trust__logo { height: 30px; }
   .trust__all .trust__logo.ph { color: $ink; font-size: 1.1rem; }
 }
+/* =============== WHERE WE'VE DELIVERED =============== */
+.dlv { margin: 0 12px; padding: 12px 0 0;
+  &__card { max-width: 1280px; margin: 0 auto; border-radius: 40px; overflow: hidden; background: #1b1830; color: $white; padding: clamp(28px, 5vw, 64px) clamp(20px, 4vw, 56px) 0; }
+  &__head { max-width: 760px; h2 { font: 400 clamp(2rem, 4.8vw, 3.8rem) $font-display; letter-spacing: -0.04em; line-height: 1.08; } p { margin-top: 18px; color: rgba($white, 0.75); max-width: 46ch; } }
+  &__chips { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px;
+    li { padding: 0.5rem 1.1rem; border-radius: 999px; background: rgba($white, 0.1); border: 1px solid rgba($white, 0.16); font-weight: 500; font-size: 0.95rem; } }
+
+  &__map { display: block; width: 100%; height: auto; margin-top: clamp(8px, 2vw, 24px); overflow: visible; }
+  &__dots { fill: none; stroke: rgba($white, 0.3); stroke-width: 3.4; stroke-linecap: round; }
+  &__arc { fill: none; stroke: $blue; stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 4px rgba($blue, 0.9)); }
+  &__map.is-in &__arc { animation: dlv-draw 1.6s $ease forwards; animation-delay: calc(var(--i) * 350ms + 300ms); }
+  &__pin { opacity: 0; circle { fill: $white; } text { fill: rgba($white, 0.9); font: 500 15px $font-body; } }
+  &__map.is-in &__pin { animation: dlv-pop 0.5s $ease forwards; animation-delay: calc(var(--i) * 350ms + 1500ms); }
+  &__home { circle { fill: $blue; stroke: $white; stroke-width: 2; } text { fill: $white; font: 600 16px $font-body; } }
+  &__pulse { fill: none !important; stroke: $blue !important; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: dlv-pulse 2.4s ease-out infinite; }
+  @media (max-width: 767px) { &__pin text, &__home text { display: none; } }
+
+  &__shipped { overflow: hidden; margin: 0 calc(clamp(20px, 4vw, 56px) * -1); padding: 18px 0; border-top: 1px solid rgba($white, 0.14); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    &:hover .dlv__track { animation-play-state: paused; } }
+  &__track { display: flex; width: max-content; animation: scroll 40s linear infinite;
+    span { flex: none; padding: 0 1.6rem; font: 400 1.15rem $font-display; letter-spacing: -0.02em; color: rgba($white, 0.8); white-space: nowrap;
+      &::after { content: ''; display: inline-block; width: 6px; height: 6px; margin-left: 3.2rem; border-radius: 50%; background: $blue; vertical-align: middle; } } } }
+@keyframes dlv-draw { to { stroke-dashoffset: 0; } }
+@keyframes dlv-pop { to { opacity: 1; } }
+@keyframes dlv-pulse { from { transform: scale(1); opacity: 0.9; } to { transform: scale(3.2); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .dlv__arc { stroke-dashoffset: 0; animation: none !important; }
+  .dlv__pin { opacity: 1; animation: none !important; }
+  .dlv__pulse, .dlv__track { animation: none !important; }
+}
+@keyframes vfade { from { opacity: 0; } }
+.steps__video { animation: vfade 0.6s ease; }

@@ -11,7 +11,8 @@
 
 .logo { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font: 500 1.2rem $font-display; letter-spacing: -0.03em;
   &__mark { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: $ink; color: $white; font-size: 0.95rem; } }
-
+.logo__img { height: 46px; width: auto; display: block; }
+@media (max-width: 767px) { .logo__img { height: 38px; } }
 /* Floating pill navbar */
 .nav { position: fixed; top: 14px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; padding: 0 12px; pointer-events: none;
   &__pill { pointer-events: auto; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: min(100%, 940px); background: $white; border-radius: 22px; padding: 10px 12px 10px 22px; box-shadow: 0 6px 30px rgba($ink, 0.1); }
@@ -45,7 +46,7 @@
 .ph { display: grid; place-items: center; text-align: center; background: repeating-linear-gradient(45deg, rgba($blue, 0.1), rgba($blue, 0.1) 10px, rgba($blue, 0.04) 10px, rgba($blue, 0.04) 20px); color: $muted; font-size: 0.8rem; padding: 8px; overflow: hidden; }
 
 .footer { position: relative; overflow: hidden; margin: 0 12px; background: linear-gradient(180deg, #e6f0ff 0%, #cfe2ff 100%); padding: 0 0 20px;
-   &__inner { position: relative; z-index: 2; display: grid; gap: 32px 24px; grid-template-columns: 1fr 1fr; padding: 150px 24px 40px;
+   &__inner { position: relative; z-index: 2; display: grid; gap: 32px 24px; grid-template-columns: 1fr 1fr; padding:160px 56px 40px;
     > :first-child { grid-column: 1 / -1; }
     @include lg { grid-template-columns: 1.5fr repeat(4, 1fr); padding: 240px 56px 40px; > :first-child { grid-column: auto; } }
     nav { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; a { text-decoration: none; color: $ink; overflow-wrap: anywhere; &:hover { color: $blue; } } } h4 { font: 400 0.85rem $font-body; color: $muted; margin-bottom: 0.6rem; } }

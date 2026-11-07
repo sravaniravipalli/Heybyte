@@ -2,7 +2,7 @@
 
 public/media/hero.mp4                  Hero background video
 public/media/outro.mp4                 Wide 16:9 video above the 3-step section
-public/media/badges/meta.svg ...       Partner badge images (names in src/data/partners.js)
+
 public/media/clients/<name>.webp       Client card images (src/data/clients.js)
 public/media/logos/<name>.svg|png      Grey logos for the scrolling strip (src/data/clients.js)
 public/media/cases/<slug>.webp         Case-study card images (src/data/caseStudies.js)

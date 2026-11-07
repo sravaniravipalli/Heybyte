@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from './Button'
 import { industries } from '../data/industries'
-import { partners } from '../data/partners'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -10,7 +9,7 @@ export default function Navbar() {
   return (
     <header className="nav">
       <div className="nav__pill">
-        <Link to="/" className="logo" onClick={close}><span className="logo__mark">h</span>HeyByte</Link>
+       <Link to="/" className="logo" onClick={close} aria-label="heyByte.ai home"><img src="/logo.png" alt="heyByte.ai" className="logo__img" /></Link>
         <nav className={`nav__links ${open ? 'is-open' : ''}`} aria-label="Main">
           <div className="dd">
             <span className="dd__label" tabIndex={0}>Industries</span>
@@ -23,10 +22,7 @@ export default function Navbar() {
             <div className="dd__menu"><Link to="/blog" onClick={close}>Blog</Link><a href="/#faq" onClick={close}>FAQ</a></div>
           </div>
           <Link to="/about" onClick={close}>About Us</Link>
-          <div className="dd">
-            <span className="dd__label" tabIndex={0}>Partners</span>
-            <div className="dd__menu">{partners.slice(0, 4).map((p) => <Link key={p.name} to="/partners" onClick={close}>{p.name}</Link>)}</div>
-          </div>
+          
           <Link to="/get-started" className="nav__mobile-cta" onClick={close}>Get Started</Link>
         </nav>
         <div className="nav__right">

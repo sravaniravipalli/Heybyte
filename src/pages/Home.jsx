@@ -1,12 +1,10 @@
 import Hero from '../sections/Hero'
 
 import Industries from '../sections/Industries'
-import Trusted from '../sections/Trusted'
 
-import CaseStudies from '../sections/CaseStudies'
 import Services from '../sections/Services'
 import WhyUs from '../sections/WhyUs'
-
+import Delivered from '../sections/Delivered'
 import Steps from '../sections/Steps'
 import Tools from '../sections/Tools'
 import FAQ from '../sections/FAQ'
@@ -18,9 +16,7 @@ export default function Home() {
       <Hero />
     
       <Industries />
-      <Trusted />
-     
-      <CaseStudies />
+     <Delivered />
       <Services />
       <WhyUs />
      
