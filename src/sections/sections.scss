@@ -230,7 +230,11 @@
 @media (max-width: 1023px) {
   /* Hero: no scroll-expand; image slideshow still runs */
   .hero { --q: 0; height: auto; }
-  .hero__stick { position: relative; top: 0; }
+  .hero__stick { position: relative; top: 0; height: auto; min-height: calc(100svh - 24px); padding-bottom: 24px; }
+  /* Stack everything in normal flow so nothing can overlap: heading, button, stat, image */
+  .hero__cta { order: 1; }
+  .hero__stat { order: 2; position: static; align-self: center; justify-content: center; width: auto; margin-top: 20px; }
+  .hero__card { order: 3; position: relative; left: auto; bottom: auto; transform: none; width: calc(100% - 24px); height: clamp(220px, 38vh, 380px); margin-top: 24px; border-radius: 26px; }
 
   /* What We Do: vertical stack instead of horizontal slide */
   .what { height: auto; }
