@@ -1,0 +1,13 @@
+// Content moved from the old site (app/page.tsx homepageFAQ)
+export const faqs = [
+  { q: 'What software development services does heybyte.ai offer?', a: 'We offer mobile app development (iOS, Android, React Native), web application development (React, Next.js, Node.js), cloud architecture design (AWS, Azure), DevOps & CI/CD pipeline services, and technical consulting for digital transformation.' },
+  { q: 'Does heybyte.ai work with startups and enterprises?', a: 'Yes. We work with organizations of all sizes, from early-stage startups building their MVP to established enterprises going through digital transformation, across different industries and project complexities.' },
+  { q: 'What technologies does heybyte.ai specialize in?', a: 'Modern, industry-standard technologies including React, Next.js, Node.js, React Native, Flutter, Python, AWS, Azure, Docker, Kubernetes, GraphQL, PostgreSQL, MongoDB and more. We choose the right stack for your project.' },
+  { q: 'How experienced is the heybyte.ai team?', a: 'Our team of 15-30 developers, designers, architects and consultants was founded in 2025 and has delivered projects for clients across India, the United States, the United Kingdom and the United Arab Emirates.' },
+  { q: 'Can heybyte.ai handle large-scale projects?', a: 'Yes. We manage complex, large-scale projects with multiple teams and sophisticated architectures, following best practices in project management, testing, deployment and maintenance.' },
+  { q: "What is heybyte.ai's approach to software development?", a: 'A structured one: understanding business requirements, designing scalable architecture, iterative development with regular feedback, comprehensive testing, secure deployment and long-term support, with an emphasis on code quality, security and performance.' },
+  { q: 'Does heybyte.ai provide cloud solutions?', a: 'Yes. We provide cloud migration, multi-cloud strategy, serverless architecture design, container orchestration with Kubernetes, cloud security and disaster recovery planning on AWS, Azure and GCP.' },
+  { q: 'How quickly can heybyte.ai deliver a project?', a: 'Timelines depend on scope and complexity, and we give detailed estimates during discovery. Our commitments: initial response in 2 hours, technical review in 24 hours, strategy session in 48 hours, final proposal in 5 days.' },
+  { q: 'Does heybyte.ai provide post-launch support?', a: 'Yes. Support includes maintenance, updates, performance optimization, feature enhancements and 24/7 monitoring.' },
+  { q: 'How do I get started with heybyte.ai?', a: 'Contact us through the website, call +91 99638 48414 or email hi@heybyte.ai. We will schedule a consultation to understand your requirements and propose the best solution.' },
+]

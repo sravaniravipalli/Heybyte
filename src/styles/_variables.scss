@@ -1,0 +1,17 @@
+$ink: #0d0d12;
+$white: #ffffff;
+$blue: #2f80ff;
+$sky: #e6f0ff;
+$gray: #ececee;
+$muted: #6b6f80;
+$line: #e4e6ee;
+
+$font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+$font-body: 'Inter', system-ui, sans-serif;
+
+$bp-md: 768px;
+$bp-lg: 1024px;
+$ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+@mixin md { @media (min-width: $bp-md) { @content; } }
+@mixin lg { @media (min-width: $bp-lg) { @content; } }

@@ -1,0 +1,29 @@
+@use './variables' as *;
+@use '../components/ui';
+@use '../sections/sections';
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; overflow-x: clip; font-family: $font-body; color: $ink; background: $white; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4 { font-family: $font-display; font-weight: 500; line-height: 1.08; letter-spacing: -0.03em; margin: 0; }
+p { margin: 0; }
+img, video { max-width: 100%; }
+h1, h2, h3 { overflow-wrap: break-word; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid $blue; outline-offset: 3px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+  .hero .w > span { transform: none; }
+  .logos__track { animation: none !important; }
+}
+/* Small screens (below 1024px): no animations. Large screens keep them. */
+@media (max-width: 1023px) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero .w > span { transform: none; animation: none !important; }
+  .hero__stat, .hero__info, .steps__info, .tm__body { animation: none !important; }
+  .logos__track { animation: none !important; }
+  .footer__wave { animation: none !important; }
+}
+html.lenis { scroll-behavior: auto; }

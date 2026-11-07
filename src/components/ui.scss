@@ -1,0 +1,56 @@
+@use '../styles/variables' as *;
+
+.container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; @include md { padding: 0 32px; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; font: 500 1rem $font-body; text-decoration: none; cursor: pointer; border: 0; padding: 0.8rem 1.4rem; border-radius: 999px; transition: transform 0.2s $ease, background 0.2s;
+  &:hover { transform: translateY(-2px); }
+  &--dark { background: $ink; color: $white; padding: 0.7rem 1.2rem; }
+  &--blue, &--light, &--primary { background: $blue; color: $white; &:hover { background: #1f6ae6; } }
+  &__arrow { display: inline-block; transition: transform 0.25s $ease; }
+  &:hover &__arrow { transform: translateX(5px); } }
+
+.logo { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font: 500 1.2rem $font-display; letter-spacing: -0.03em;
+  &__mark { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: $ink; color: $white; font-size: 0.95rem; } }
+
+/* Floating pill navbar */
+.nav { position: fixed; top: 14px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; padding: 0 12px; pointer-events: none;
+  &__pill { pointer-events: auto; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: min(100%, 940px); background: $white; border-radius: 22px; padding: 10px 12px 10px 22px; box-shadow: 0 6px 30px rgba($ink, 0.1); }
+  &__links { display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0; flex-direction: column; background: $white; border-radius: 22px; padding: 12px 22px 20px; box-shadow: 0 12px 30px rgba($ink, 0.12); max-height: calc(100vh - 110px); max-height: calc(100svh - 110px); overflow-y: auto;
+    a, .dd__label { padding: 0.7rem 0; text-decoration: none; }
+    &.is-open { display: flex; }
+       @include lg { display: flex; position: static; flex-direction: row; align-items: center; gap: 1.6rem; background: none; box-shadow: none; padding: 0; border-radius: 0; max-height: none; overflow: visible; a, .dd__label { padding: 0; } } }
+  .nav__links .nav__mobile-cta { color: $blue; font-weight: 600; @include lg { display: none; } }
+  &__right { display: flex; align-items: center; gap: 0.6rem; .btn { display: none; @include lg { display: inline-flex; } } }
+  &__toggle { width: 40px; height: 40px; border: 0; border-radius: 12px; background: $gray; display: grid; place-content: center; gap: 5px; cursor: pointer; span { display: block; width: 18px; height: 2px; background: $ink; } @include lg { display: none; } } }
+.dd { position: relative;
+ &__label { cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    &::after { content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-top: -3px; transition: transform 0.25s $ease, margin 0.25s $ease; } }
+  &__menu { display: none; flex-direction: column; a { padding: 0.5rem 0 0.5rem 1rem; }
+    @include lg { position: absolute; top: calc(100% + 14px); left: -16px; min-width: 200px; background: $white; border-radius: 16px; padding: 8px; box-shadow: 0 12px 30px rgba($ink, 0.12);
+      a { padding: 0.6rem 0.8rem; border-radius: 10px; &:hover { background: $gray; } } } }
+ &:hover &__label::after, &:focus-within &__label::after { transform: rotate(225deg); margin-top: 3px; }
+      &:hover .dd__menu, &:focus-within .dd__menu { display: flex; } }
+
+/* FAQ */
+.faq {
+  &__q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem; text-align: left; background: none; border: 0; cursor: pointer; padding: 1.1rem 0; font: 400 1.15rem $font-display; letter-spacing: -0.02em; color: $ink; &:hover { color: $blue; } }
+  &__icon { flex: none; width: 28px; height: 28px; border-radius: 50%; background: $ink; color: $white; display: grid; place-items: center; font-size: 0.85rem; line-height: 1; transition: transform 0.35s $ease; }
+  &.is-open &__icon { transform: rotate(90deg); }
+  &__a-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s $ease; > div { overflow: hidden; } }
+  &.is-open &__a-wrap { grid-template-rows: 1fr; }
+  &__a { padding: 0 0 1.2rem; color: $muted; max-width: 56ch; } }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s $ease var(--d, 0ms), transform 0.8s $ease var(--d, 0ms); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+.ph { display: grid; place-items: center; text-align: center; background: repeating-linear-gradient(45deg, rgba($blue, 0.1), rgba($blue, 0.1) 10px, rgba($blue, 0.04) 10px, rgba($blue, 0.04) 20px); color: $muted; font-size: 0.8rem; padding: 8px; overflow: hidden; }
+
+.footer { position: relative; overflow: hidden; margin: 0 12px; background: linear-gradient(180deg, #e6f0ff 0%, #cfe2ff 100%); padding: 0 0 20px;
+   &__inner { position: relative; z-index: 2; display: grid; gap: 32px 24px; grid-template-columns: 1fr 1fr; padding: 150px 24px 40px;
+    > :first-child { grid-column: 1 / -1; }
+    @include lg { grid-template-columns: 1.5fr repeat(4, 1fr); padding: 240px 56px 40px; > :first-child { grid-column: auto; } }
+    nav { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; a { text-decoration: none; color: $ink; overflow-wrap: anywhere; &:hover { color: $blue; } } } h4 { font: 400 0.85rem $font-body; color: $muted; margin-bottom: 0.6rem; } }
+  &__tag { margin-top: 0.8rem; max-width: 30ch; color: $muted; font-size: 0.95rem; }
+  &__social { display: flex; gap: 14px; margin-top: 1rem; a { display: grid; place-items: center; color: $ink; transition: color 0.2s; &:hover { color: $blue; } svg { width: 18px; height: 18px; } } }
+  &__legal { position: relative; z-index: 2; padding: 0 24px; margin-top: 6px; font-size: 0.85rem; color: $muted; @include md { padding: 0 56px; } }
+   &__wave { position: absolute; z-index: 1; display: block; left: -5%; width: 110%; bottom: 0; height: 360px; fill: rgba($blue, 0.35); filter: blur(16px); pointer-events: none; animation: drift 9s ease-in-out infinite alternate;
+    &--b { fill: rgba($blue, 0.6); height: 230px; bottom: -30px; animation-duration: 12s; animation-direction: alternate-reverse; } } }
