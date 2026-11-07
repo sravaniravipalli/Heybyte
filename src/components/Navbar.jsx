@@ -17,10 +17,7 @@ export default function Navbar() {
           </div>
           <Link to="/services" onClick={close}>Services</Link>
           <Link to="/case-studies" onClick={close}>Our Work</Link>
-          <div className="dd">
-            <span className="dd__label" tabIndex={0}>Resources</span>
-            <div className="dd__menu"><Link to="/blog" onClick={close}>Blog</Link><a href="/#faq" onClick={close}>FAQ</a></div>
-          </div>
+         
           <Link to="/about" onClick={close}>About Us</Link>
           
           <Link to="/get-started" className="nav__mobile-cta" onClick={close}>Get Started</Link>
