@@ -1,3 +1,4 @@
+'use client'
 import Hero from '../sections/Hero'
 
 import Industries from '../sections/Industries'

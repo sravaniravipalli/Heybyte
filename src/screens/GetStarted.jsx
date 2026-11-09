@@ -1,17 +1,36 @@
+'use client'
 import { useState } from 'react'
 import Button from '../components/Button'
 import { company, commitments } from '../data/company'
 
 export default function GetStarted() {
-  const [sent, setSent] = useState(false)
+ 
+ const [status, setStatus] = useState('')
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    const f = new FormData(e.currentTarget)
-    const body = `Name: ${f.get('name')}\nCompany: ${f.get('company')}\nEmail: ${f.get('email')}\nPhone: ${f.get('phone')}\nBudget: ${f.get('budget')}\nTimeline: ${f.get('timeline')}\n\n${f.get('message')}`
-    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent('New Project Inquiry from ' + f.get('name'))}&body=${encodeURIComponent(body)}`
-    setSent(true)
+async function handleSubmit(e) {
+  e.preventDefault()
+  setStatus('sending')
+  const formData = new FormData(e.currentTarget)
+  formData.append('access_key', 'ae4de886-8fcd-49d4-99ea-64c2467d3d80')
+  formData.append('subject', 'New Project Inquiry from ' + formData.get('name'))
+  formData.append('from_name', 'HeyByte Website')
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    })
+    const data = await res.json()
+    if (data.success) {
+      setStatus('success')
+      e.target.reset()
+    } else {
+      setStatus('error')
+    }
+  } catch {
+    setStatus('error')
   }
+}
 
   return (
     <section className="contact">
@@ -36,8 +55,11 @@ export default function GetStarted() {
             <label>Timeline<input name="timeline" placeholder="2 months, 6 months…" /></label>
           </div>
           <label>Tell us about your vision<textarea name="message" required placeholder="Web app, mobile app, cloud, DevOps…" /></label>
+         <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
           <Button type="submit">Send message</Button>
-          {sent && <p className="contact__ok">Your email app should open with the message ready to send.</p>}
+         {status === 'sending' && <p className="contact__ok">Sending...</p>}
+{status === 'success' && <p className="contact__ok">Thanks! Your message has been sent. We'll get back to you soon.</p>}
+{status === 'error' && <p className="contact__ok">Something went wrong. Please email us directly.</p>}
         </form>
       </div>
       <div className="container commit">

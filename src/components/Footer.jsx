@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+'use client'
+import Link from 'next/link'
 import { industries } from '../data/industries'
 import { company } from '../data/company'
 const social = [
@@ -33,7 +34,7 @@ export default function Footer() {
 <svg className="footer__wave footer__wave--b" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true"><path d="M0 240 C200 160 380 170 560 230 S960 300 1160 210 1360 150 1440 190 V320 H0Z" /></svg>
     <div className="footer__inner">
         <div>
-         <Link to="/" className="logo" aria-label="heyByte.ai home"><img src="/logo.png" alt="heyByte.ai" className="logo__img" /></Link>
+         <Link href="/" className="logo" aria-label="heyByte.ai home"><img src="/logo.png" alt="heyByte.ai" className="logo__img" /></Link>
           <p className="footer__tag">{company.tagline}</p>
          <div className="footer__social">
   {social.map((s) => (
@@ -41,10 +42,10 @@ export default function Footer() {
   ))}
 </div>
         </div>
-        <nav aria-label="Industries"><h4>Industries</h4>{industries.map((i) => <Link key={i.slug} to={`/industries/${i.slug}`}>{i.title}</Link>)}</nav>
-        <nav aria-label="Site map"><h4>Site map</h4><Link to="/services">Services</Link><Link to="/case-studies">Our Work</Link><Link to="/blog">Blog</Link><Link to="/about">About Us</Link><Link to="/get-started">Contact</Link></nav>
+       <nav aria-label="Industries"><h4>Industries</h4>{industries.map((i) => <Link key={i.slug} href={`/industries/${i.slug}`}>{i.title}</Link>)}</nav>
+        <nav aria-label="Site map"><h4>Site map</h4><Link href="/services">Services</Link><Link href="/case-studies">Our Work</Link><Link href="/blog">Blog</Link><Link href="/about">About Us</Link><Link href="/get-started">Contact</Link></nav>
         <nav aria-label="Contact"><h4>Contact</h4><a href={company.phoneHref}>{company.phone}</a><a href={`mailto:${company.email}`}>{company.email}</a><a href={company.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a></nav>
-        <nav aria-label="Secure"><h4>Secure</h4><Link to="/privacy-policy">Privacy Policy</Link><Link to="/terms-of-service">Terms of Service</Link></nav>
+        <nav aria-label="Secure"><h4>Secure</h4><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link></nav>
       </div>
       <p className="footer__legal">{company.address}</p>
       <p className="footer__legal">© {new Date().getFullYear()} heybyte.ai. All rights reserved.</p>

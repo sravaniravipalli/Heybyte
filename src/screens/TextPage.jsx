@@ -1,3 +1,4 @@
+'use client'
 export default function TextPage({ title, children }) {
   return (
     <section className="section"><div className="container textpage">
