@@ -1,13 +1,11 @@
-import { useParams, Navigate } from 'react-router-dom'
+'use client'
 import { industries } from '../data/industries'
 import { services } from '../data/services'
 import Button from '../components/Button'
 import FinalCTA from '../sections/FinalCTA'
 
-export default function IndustryPage() {
-  const { slug } = useParams()
+export default function IndustryPage({ slug }) {
   const x = industries.find((i) => i.slug === slug)
-  if (!x) return <Navigate to="/" replace />
   return (
     <>
       <section className="pagehero"><div className="container">

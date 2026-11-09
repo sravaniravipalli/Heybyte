@@ -1,3 +1,4 @@
+'use client'
 import Button from '../components/Button'
 import MediaSlot from '../components/MediaSlot'
 import FinalCTA from '../sections/FinalCTA'

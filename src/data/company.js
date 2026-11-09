@@ -2,7 +2,7 @@
 export const company = {
   name: 'heybyte.ai',
   tagline: 'Your strategic partner for modern, scalable software solutions.',
-  email: 'hi@heybyte.ai',
+  email: 'hi@heybyte.in',
   phone: '+91 99638 48414',
   phoneHref: 'tel:+919963848414',
   whatsapp: 'https://wa.me/9963848414?text=Hi%2C%20interested%20in%20your%20software%20services.%20Free%20for%20a%20quick%20call%3F',
