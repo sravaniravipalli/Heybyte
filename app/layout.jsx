@@ -5,7 +5,7 @@ import SmoothScroll from '../src/components/SmoothScroll'
 import { company } from '../src/data/company'
 
 export const metadata = {
-  metadataBase: new URL('https://heybyte.ai'),
+ metadataBase: new URL('https://www.heybyte.ai'),
   icons: { icon: '/favicon.ico' },
   title: {
     default: 'heybyte.ai | App Development, Website Development & Software Solutions',
@@ -25,8 +25,8 @@ const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: company.name,
-  url: 'https://heybyte.ai',
-  logo: 'https://heybyte.ai/logo.png',
+ url: 'https://www.heybyte.ai',
+logo: 'https://www.heybyte.ai/logo.png',
   telephone: company.phone,
   email: company.email,
   sameAs: [company.linkedin, company.instagram],
